@@ -13,12 +13,12 @@ public class Menue {
 	}
 
 	public String getCodeFromUser() {
-	
-		 System.out.println("Please, type the code of product that you want to buy(ex. A1) ");
-		 String userCodeInput = scan.nextLine();
-		
-		 return userCodeInput;
+		String userCodeInput;
 
+		System.out.println("Please, type the code of product that you want to buy(ex. A1) ");
+		userCodeInput = scan.nextLine();
+
+		return userCodeInput;
 	}
 
 	public double getMoneyInput() {
@@ -26,8 +26,18 @@ public class Menue {
 		double userMoneySum = 0;
 		while (true) {
 			System.out.println("Please, feed money into the machine in valid whole dollar amounts($1, $2, $5, $10)");
-			String userInputInString = scan.nextLine();
-			double userMoney = Double.parseDouble(userInputInString);
+			String userInputInString;
+			double userMoney;
+			while (true) {
+				userInputInString = scan.nextLine();
+				userMoney = Double.parseDouble(userInputInString);
+
+				if (userMoney != Double.valueOf(1) && userMoney != 2.0 && userMoney != 5.0 && userMoney != 10.0) {
+					System.out.println("Please, enter valid  bill value");
+				} else {
+					break;
+				}
+			}
 
 			System.out.println("Do you want to add more money (Y/N) ?");
 			userInputInString = scan.nextLine();
@@ -36,7 +46,7 @@ public class Menue {
 			if (userInputInString.contains("N") || userInputInString.contains("n")) {
 				break;
 			}
-			
+
 //			else if(userInputInString.contains("Y") || userInputInString.contains("y")) {
 //				continue;
 //			}else {
@@ -47,17 +57,17 @@ public class Menue {
 		return userMoneySum;
 
 	}
-	
+
 	public boolean getUserFinishTransaction() {
 		System.out.println("Would you like to complete transaction (Y/N)?");
 		String userInputInString = scan.nextLine();
-		
+
 		if (userInputInString.contains("Y") || userInputInString.contains("y")) {
-			
+
 			return true;
 		}
 		return false;
-		
+
 	}
 
 }

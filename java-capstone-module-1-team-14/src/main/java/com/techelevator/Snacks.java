@@ -53,8 +53,12 @@ public abstract class Snacks {
 
 	@Override
 	public String toString() {
-		return  this.getLocation()  + " " + this.getName() + " " + this.getPrice() + " "+ this.getType()
-				+" "+ this.getQuantity();
+
+		
+		return String.format("|%-25s|%-8s|%-5.2f|%-7s|%-8d", name, location, price, type, quantity);
+//		return "name = " + name + ",\tlocation = " + location + ",\tprice = " + price + ",\ttype = " + type + ",\tquantity = "
+//				+ quantity;
+
 	}
 
 
